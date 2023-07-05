@@ -169,7 +169,7 @@ function Register() {
                         </InputGroupAddon>
                         <Input
                           placeholder="Phone number"
-                          type="tel"
+                          type="number"
                           name="phone"
                           onClick={handleChange}
                           onFocus={() => setfocusedEmail(true)}
