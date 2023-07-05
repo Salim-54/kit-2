@@ -10,6 +10,18 @@ import {
   Container,
   Row,
   Col,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  UncontrolledDropdown,
+  Progress,
+  Media,
+  UncontrolledTooltip,
+  Badge,
+  PaginationItem,
+  PaginationLink,
+  CardFooter,
+  Pagination,
 } from "reactstrap";
 
 import CardsHeader from "components/Headers/CardsHeader.js";
@@ -67,87 +79,57 @@ function Dashboard() {
     <>
       <CardsHeader data={data} name="Default" parentName="Dashboards" />
       <Container className="mt--6" fluid>
-        <Row>
-          <Col xl="12">
-            <Card>
-              <CardHeader className="border-0 "></CardHeader>
-              <Table className="align-items-center table-flush responsive ">
-                <thead className="thead-light">
-                  <tr>
-                    <th scope="col">Referral links</th>
-                    <th scope="col">Phone number</th>
-                    <th scope="col">Total subscribers</th>
-                    <th scope="col">Last recent subscription</th>
-                  </tr>
-                </thead>
-                {/* <tbody>
-                  <tr>
-                    <th scope="row">/argon/</th>
-                    <td>4,569</td>
-                    <td>340</td>
-                    <td>
-                      <i className="fas fa-arrow-up text-success mr-3" />
-                      46,53%
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/index.html</th>
-                    <td>3,985</td>
-                    <td>319</td>
-                    <td>
-                      <i className="fas fa-arrow-down text-warning mr-3" />
-                      46,53%
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/charts.html</th>
-                    <td>3,513</td>
-                    <td>294</td>
-                    <td>
-                      <i className="fas fa-arrow-down text-warning mr-3" />
-                      36,49%
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/tables.html</th>
-                    <td>2,050</td>
-                    <td>147</td>
-                    <td>
-                      <i className="fas fa-arrow-up text-success mr-3" />
-                      50,87%
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/profile.html</th>
-                    <td>1,795</td>
-                    <td>190</td>
-                    <td>
-                      <i className="fas fa-arrow-down text-danger mr-3" />
-                      46,53%
-                    </td>
-                  </tr>
-                </tbody> */}
+        <>
+          {/* <SimpleHeader name="Tables" parentName="Tables" /> */}
+          <Container className="mt--6" fluid>
+            <Row>
+              <div className="col">
+                <Card>
+                  <CardHeader className="border-0">
+                    <h3 className="mb-0">Light table</h3>
+                  </CardHeader>
 
-                <tbody>
-                  {data.map((item, index) => (
-                    <tr key={index}>
-                      <th scope="row">
-                        <a
-                          href={`https://hara.smolleys.com/api/auth/io?referral=${item.referralKey}`}
-                        >
-                          Referral link
-                        </a>
-                      </th>
-                      <td>{item.phone}</td>
-                      <td>{item.subscribers}</td>
-                      <td>{item.updatedAt}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </Card>
-          </Col>
-        </Row>
+                  <Table className="align-items-center table-flush" responsive>
+                    <thead className="thead-light">
+                      <tr>
+                        <th className="sort" data-sort="name" scope="col">
+                          Referral links
+                        </th>
+                        <th className="sort" data-sort="budget" scope="col">
+                          phone number
+                        </th>
+                        <th className="sort" data-sort="status" scope="col">
+                          total subscribers
+                        </th>
+
+                        <th className="sort" data-sort="completion" scope="col">
+                          RECENT SUBSCRIPTION
+                        </th>
+                        <th scope="col" />
+                      </tr>
+                    </thead>
+                    <tbody className="list">
+                      {data.map((item, index) => (
+                        <tr key={index}>
+                          <th scope="row">
+                            <a
+                              href={`https://hara.smolleys.com/api/auth/io?referral=${item.referralKey}`}
+                            >
+                              Referral link
+                            </a>
+                          </th>
+                          <td>{item.phone}</td>
+                          <td>{item.subscribers}</td>
+                          <td>{item.updatedAt}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                </Card>
+              </div>
+            </Row>
+          </Container>
+        </>
       </Container>
     </>
   );
