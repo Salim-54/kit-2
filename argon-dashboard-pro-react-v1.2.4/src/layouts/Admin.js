@@ -74,16 +74,6 @@ function Admin() {
 
   return (
     <>
-      <Sidebar
-        routes={routes}
-        toggleSidenav={toggleSidenav}
-        sidenavOpen={sidenavOpen}
-        logo={{
-          innerLink: "/",
-          imgSrc: require("assets/img/brand/argon-react.png"),
-          imgAlt: "...",
-        }}
-      />
       <div className="main-content" ref={mainContentRef}>
         <AdminNavbar
           theme={getNavbarTheme()}
