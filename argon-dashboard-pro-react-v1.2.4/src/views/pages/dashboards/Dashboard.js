@@ -86,7 +86,7 @@ function Dashboard() {
               <div className="col">
                 <Card>
                   <CardHeader className="border-0">
-                    <h3 className="mb-0">Light table</h3>
+                    <h3 className="mb-0">Statistics</h3>
                   </CardHeader>
 
                   <Table className="align-items-center table-flush" responsive>
