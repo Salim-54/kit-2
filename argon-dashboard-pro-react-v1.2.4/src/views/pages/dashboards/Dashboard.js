@@ -72,7 +72,7 @@ function Dashboard() {
             <Card>
               <CardHeader className="border-0 "></CardHeader>
               <Table
-                className="align-items-center table-flush able-responsive"
+                className="align-items-center table-flush table-responsive"
                 responsive
               >
                 <thead className="thead-light">
