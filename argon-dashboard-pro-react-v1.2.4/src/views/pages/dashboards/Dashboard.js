@@ -71,7 +71,10 @@ function Dashboard() {
           <Col xl="12">
             <Card>
               <CardHeader className="border-0 "></CardHeader>
-              <Table className="align-items-center table-flush " responsive>
+              <Table
+                className="align-items-center table-flush responsive "
+                responsive
+              >
                 <thead className="thead-light">
                   <tr>
                     <th scope="col">Referral links</th>
