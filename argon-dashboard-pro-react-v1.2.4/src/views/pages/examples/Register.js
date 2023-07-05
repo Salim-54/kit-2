@@ -210,7 +210,6 @@ function Register() {
                     <Button
                       color="primary"
                       href={"https://sharif-delta.vercel.app/auth/login"}
-                      onClick={(e) => e.preventDefault()}
                     >
                       My dashboard
                     </Button>
