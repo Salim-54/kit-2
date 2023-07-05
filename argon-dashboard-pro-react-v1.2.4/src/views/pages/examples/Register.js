@@ -57,9 +57,8 @@ function Register() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setData({ phone: value });
-
-    // setData(value);
+    setData((prev) => ({ ...prev, phone: value }));
+    console.log(value);
   };
 
   function handleResponse(response) {
@@ -171,7 +170,8 @@ function Register() {
                           placeholder="Phone number"
                           type="number"
                           name="phone"
-                          onClick={handleChange}
+                          id="phone"
+                          onChange={handleChange}
                           onFocus={() => setfocusedEmail(true)}
                           onBlur={() => setfocusedEmail(false)}
                         />
@@ -194,7 +194,7 @@ function Register() {
                     {/**https://hara.smolleys.com/api/auth/io?referral=fc7tBvz1mI */}
                     {success}
                     <CardText className="mb-4">
-                      <span className="font-weight-bold">your login:</span>
+                      <span className="font-weight-bold">your login: </span>
                       {tel}
                     </CardText>
                     <CardText className="mb-4">
@@ -205,7 +205,7 @@ function Register() {
                       <span className="font-weight-bold">
                         your referral link:
                       </span>
-                      {generated}
+                      <a href={generated}>{generated}</a>
                     </CardText>
                     <Button
                       color="primary"
