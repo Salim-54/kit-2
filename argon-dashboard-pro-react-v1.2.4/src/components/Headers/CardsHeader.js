@@ -1,19 +1,3 @@
-/*!
-
-=========================================================
-* Argon Dashboard PRO React - v1.2.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
@@ -30,7 +14,36 @@ import {
   Col,
 } from "reactstrap";
 
-function CardsHeader({ name, parentName }) {
+function CardsHeader({ data }) {
+  const totalObjects = data.length;
+
+  // Calculate the total number of subscribers
+  const totalSubscribers = data.reduce(
+    (total, item) => total + item.subscribers,
+    0
+  );
+
+  // Calculate the total number of objects with 0 subscribers
+  const objectsWithZeroSubscribers = data.filter(
+    (item) => item.subscribers === 0
+  ).length;
+
+  // Get the current date in "YYYY-MM-DD" format
+  const currentDate = new Date().toISOString().split("T")[0];
+
+  // Calculate the total number of objects with createdAt of today
+  const objectsWithTodayCreatedAt = data.filter((item) =>
+    item.createdAt.startsWith(currentDate)
+  ).length;
+
+  console.log("Total Subscribers:", totalSubscribers);
+  console.log("Total Objects:", totalObjects);
+  console.log("Total Objects with 0 Subscribers:", objectsWithZeroSubscribers);
+  console.log(
+    "Total Objects with createdAt of today:",
+    objectsWithTodayCreatedAt
+  );
+
   return (
     <>
       <div className="header bg-info pb-6">
@@ -38,45 +51,7 @@ function CardsHeader({ name, parentName }) {
           <div className="header-body">
             <Row className="align-items-center py-4">
               <Col lg="6" xs="7">
-                <h6 className="h2 text-white d-inline-block mb-0">{name}</h6>{" "}
-                <Breadcrumb
-                  className="d-none d-md-inline-block ml-md-4"
-                  listClassName="breadcrumb-links breadcrumb-dark"
-                >
-                  <BreadcrumbItem>
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                      <i className="fas fa-home" />
-                    </a>
-                  </BreadcrumbItem>
-                  <BreadcrumbItem>
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                      {parentName}
-                    </a>
-                  </BreadcrumbItem>
-                  <BreadcrumbItem aria-current="page" className="active">
-                    {name}
-                  </BreadcrumbItem>
-                </Breadcrumb>
-              </Col>
-              <Col className="text-right" lg="6" xs="5">
-                <Button
-                  className="btn-neutral"
-                  color="default"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                  size="sm"
-                >
-                  New
-                </Button>
-                <Button
-                  className="btn-neutral"
-                  color="default"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                  size="sm"
-                >
-                  Filters
-                </Button>
+                <h6 className="h2 text-white d-inline-block mb-0">Dashboard</h6>
               </Col>
             </Row>
 
@@ -90,10 +65,10 @@ function CardsHeader({ name, parentName }) {
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
-                          Total traffic
+                          Total referrals
                         </CardTitle>
                         <span className="h2 font-weight-bold mb-0">
-                          350,897
+                          {totalObjects}
                         </span>
                       </div>
                       <Col className="col-auto">
@@ -102,12 +77,6 @@ function CardsHeader({ name, parentName }) {
                         </div>
                       </Col>
                     </Row>
-                    <p className="mt-3 mb-0 text-sm">
-                      <span className="text-success mr-2">
-                        <i className="fa fa-arrow-up" /> 3.48%
-                      </span>{" "}
-                      <span className="text-nowrap">Since last month</span>
-                    </p>
                   </CardBody>
                 </Card>
               </Col>
@@ -120,9 +89,11 @@ function CardsHeader({ name, parentName }) {
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
-                          New users
+                          Total subscribers
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">2,356</span>
+                        <span className="h2 font-weight-bold mb-0">
+                          {totalSubscribers}
+                        </span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -130,12 +101,6 @@ function CardsHeader({ name, parentName }) {
                         </div>
                       </Col>
                     </Row>
-                    <p className="mt-3 mb-0 text-sm">
-                      <span className="text-success mr-2">
-                        <i className="fa fa-arrow-up" /> 3.48%
-                      </span>{" "}
-                      <span className="text-nowrap">Since last month</span>
-                    </p>
                   </CardBody>
                 </Card>
               </Col>
@@ -148,9 +113,11 @@ function CardsHeader({ name, parentName }) {
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
-                          Sales
+                          Today's referrals
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">924</span>
+                        <span className="h2 font-weight-bold mb-0">
+                          {objectsWithTodayCreatedAt}
+                        </span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -158,12 +125,6 @@ function CardsHeader({ name, parentName }) {
                         </div>
                       </Col>
                     </Row>
-                    <p className="mt-3 mb-0 text-sm">
-                      <span className="text-success mr-2">
-                        <i className="fa fa-arrow-up" /> 3.48%
-                      </span>{" "}
-                      <span className="text-nowrap">Since last month</span>
-                    </p>
                   </CardBody>
                 </Card>
               </Col>
@@ -176,9 +137,11 @@ function CardsHeader({ name, parentName }) {
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
-                          Performance
+                          inactive referrals
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">49,65%</span>
+                        <span className="h2 font-weight-bold mb-0">
+                          {objectsWithZeroSubscribers}
+                        </span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
@@ -186,12 +149,6 @@ function CardsHeader({ name, parentName }) {
                         </div>
                       </Col>
                     </Row>
-                    <p className="mt-3 mb-0 text-sm">
-                      <span className="text-success mr-2">
-                        <i className="fa fa-arrow-up" /> 3.48%
-                      </span>{" "}
-                      <span className="text-nowrap">Since last month</span>
-                    </p>
                   </CardBody>
                 </Card>
               </Col>

@@ -54,26 +54,6 @@ function AlternativeHeader() {
                   </BreadcrumbItem>
                 </Breadcrumb>
               </Col>
-              <Col className="text-right" lg="6" xs="5">
-                <Button
-                  className="btn-neutral"
-                  color=""
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                  size="sm"
-                >
-                  New
-                </Button>
-                <Button
-                  className="btn-neutral"
-                  color=""
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                  size="sm"
-                >
-                  Filters
-                </Button>
-              </Col>
             </Row>
           </div>
         </Container>

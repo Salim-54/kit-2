@@ -1,29 +1,8 @@
-/*!
-
-=========================================================
-* Argon Dashboard PRO React - v1.2.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
-// react library for routing
 import { useLocation, NavLink as NavLinkRRD, Link } from "react-router-dom";
-// nodejs library that concatenates classes
 import classnames from "classnames";
-// nodejs library to set properties for components
 import { PropTypes } from "prop-types";
-// react library that creates nice scrollbar on windows devices
 import PerfectScrollbar from "react-perfect-scrollbar";
-// reactstrap components
 import {
   Collapse,
   NavbarBrand,
@@ -203,49 +182,6 @@ function Sidebar({ toggleSidenav, sidenavOpen, routes, logo, rtlActive }) {
       <div className="navbar-inner">
         <Collapse navbar isOpen={true}>
           <Nav navbar>{createLinks(routes)}</Nav>
-          <hr className="my-3" />
-          <h6 className="navbar-heading p-0 text-muted">
-            <span className="docs-normal">Documentation</span>
-            <span className="docs-mini">D</span>
-          </h6>
-          <Nav className="mb-md-3" navbar>
-            <NavItem>
-              <NavLink
-                href="https://demos.creative-tim.com/argon-dashboard-pro-react/#/documentation/overview?ref=adpr-sidebar"
-                target="_blank"
-              >
-                <i className="ni ni-spaceship" />
-                <span className="nav-link-text">Getting started</span>
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                href="https://demos.creative-tim.com/argon-dashboard-pro-react/#/documentation/colors?ref=adpr-sidebar"
-                target="_blank"
-              >
-                <i className="ni ni-palette" />
-                <span className="nav-link-text">Foundation</span>
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                href="https://demos.creative-tim.com/argon-dashboard-pro-react/#/documentation/alert?ref=adpr-sidebar"
-                target="_blank"
-              >
-                <i className="ni ni-ui-04" />
-                <span className="nav-link-text">Components</span>
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                href="https://demos.creative-tim.com/argon-dashboard-pro-react/#/documentation/charts?ref=adpr-sidebar"
-                target="_blank"
-              >
-                <i className="ni ni-chart-pie-35" />
-                <span className="nav-link-text">Plugins</span>
-              </NavLink>
-            </NavItem>
-          </Nav>
         </Collapse>
       </div>
     </div>

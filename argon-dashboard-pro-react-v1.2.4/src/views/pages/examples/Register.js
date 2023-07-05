@@ -107,7 +107,7 @@ function Register() {
       return;
     }
     console.log(data1);
-    fetch("http://localhost:3001/auth/signup", {
+    fetch("https://hara.smolleys.com/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
