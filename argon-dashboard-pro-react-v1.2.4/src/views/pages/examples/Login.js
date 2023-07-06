@@ -71,7 +71,7 @@ function Login() {
     if (response.role === "admin") {
       navigate("/admin/dashboard");
     } else {
-      navigate("/admin/dashboard");
+      navigate("/admin/referral");
     }
   }
 

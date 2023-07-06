@@ -41,7 +41,7 @@ function AdminNavbar() {
         id="navbar-main"
       >
         <Container>
-          <NavbarBrand to="/" tag={Link}>
+          <NavbarBrand to="#" tag={Link}>
             <img alt="..." src={require("assets/img/logo.png")} />
           </NavbarBrand>
           <button

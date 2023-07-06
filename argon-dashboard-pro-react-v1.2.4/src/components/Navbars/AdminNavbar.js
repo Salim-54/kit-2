@@ -43,8 +43,11 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 
 function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
+  let navigate = useNavigate();
+
   // function that on mobile devices makes the search open
   const openSearch = () => {
     document.body.classList.add("g-navbar-search-showing");
@@ -70,6 +73,11 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
     setTimeout(function () {
       document.body.classList.remove("g-navbar-search-hidden");
     }, 500);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("bearerToken");
+    navigate("/");
   };
 
   return (
@@ -153,7 +161,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     onClick={(e) => e.preventDefault()}
                   >
                     <i className="ni ni-user-run" />
-                    <span>Logout</span>
+                    <span onClick={logout}>Logout</span>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

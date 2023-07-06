@@ -16,6 +16,7 @@
 */
 import Alternative from "views/pages/dashboards/Alternative.js";
 import Dashboard from "views/pages/dashboards/Dashboard.js";
+import ReferralDashboard from "views/pages/dashboards/ReferralDashboard";
 
 import Lock from "views/pages/examples/Lock.js";
 import Login from "views/pages/examples/Login.js";
@@ -40,6 +41,13 @@ const routes = [
         component: <Dashboard />,
         layout: "/admin",
       },
+      {
+        path: "/referral",
+        name: "Dashboard",
+        miniName: "D",
+        component: <ReferralDashboard />,
+        layout: "/admin",
+      },
     ],
   },
   {
@@ -49,17 +57,17 @@ const routes = [
     state: "examplesCollapse",
     views: [
       {
-        path: "/login",
-        name: "Login",
-        miniName: "L",
-        component: <Login />,
-        layout: "/auth",
-      },
-      {
         path: "/register",
         name: "Register",
         miniName: "R",
         component: <Register />,
+        layout: "/auth",
+      },
+      {
+        path: "/login",
+        name: "Login",
+        miniName: "L",
+        component: <Login />,
         layout: "/auth",
       },
     ],
