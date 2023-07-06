@@ -115,6 +115,7 @@ function Dashboard() {
                             <a
                               href={`https://hara.smolleys.com/api/auth/io/referral=${item.referralKey}`}
                               target="_blank"
+                              rel="noreferrer"
                             >
                               Referral link
                             </a>
