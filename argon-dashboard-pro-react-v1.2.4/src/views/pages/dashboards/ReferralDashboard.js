@@ -61,7 +61,7 @@ function Dashboard() {
           {/* <SimpleHeader name="Tables" parentName="Tables" /> */}
           <Container className="mt--6" fluid>
             <Row>
-              <div className="col">
+              <div className="col ">
                 <Card>
                   <CardHeader className="border-0">
                     <h3 className="mb-0">Statistics</h3>

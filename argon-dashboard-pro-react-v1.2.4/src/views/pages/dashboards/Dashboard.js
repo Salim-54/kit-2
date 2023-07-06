@@ -113,7 +113,8 @@ function Dashboard() {
                         <tr key={index}>
                           <th scope="row">
                             <a
-                              href={`https://hara.smolleys.com/api/auth/io?referral=${item.referralKey}`}
+                              href={`https://hara.smolleys.com/api/auth/io/referral=${item.referralKey}`}
+                              target="_blank"
                             >
                               Referral link
                             </a>
