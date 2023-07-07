@@ -52,6 +52,7 @@ function Register() {
   const [tel, setTel] = React.useState("");
   const [alert, setalert] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
+  const [logging, setLogging] = React.useState(false);
 
   const [generated, setGenerated] = React.useState("");
 
@@ -105,6 +106,7 @@ function Register() {
       infoAlert();
       return;
     }
+    setLogging(true);
     console.log(data1);
     fetch("https://hara.smolleys.com/auth/signup", {
       method: "POST",
@@ -116,8 +118,10 @@ function Register() {
       .then((response) => response.json())
       .then((responseData) => {
         handleResponse(responseData);
+        setLogging(false);
       })
       .catch((error) => {
+        setLogging(false);
         console.error("Error:", error);
       });
   }
@@ -185,7 +189,9 @@ function Register() {
                         type="button"
                         onClick={() => registerUser(data)}
                       >
-                        Generate referral link
+                        {logging
+                          ? "Generating . . ."
+                          : "Generate referral link"}
                       </Button>
                     </div>
                   </Form>

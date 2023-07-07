@@ -2,27 +2,7 @@ import React from "react";
 
 import Chart from "chart.js";
 
-import {
-  Button,
-  Card,
-  CardHeader,
-  Table,
-  Container,
-  Row,
-  Col,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-  UncontrolledDropdown,
-  Progress,
-  Media,
-  UncontrolledTooltip,
-  Badge,
-  PaginationItem,
-  PaginationLink,
-  CardFooter,
-  Pagination,
-} from "reactstrap";
+import { Card, CardHeader, Table, Container, Row } from "reactstrap";
 
 import CardsHeader from "components/Headers/CardsHeader.js";
 

@@ -49,12 +49,9 @@ function Login() {
   let navigate = useNavigate();
 
   const [data, setData] = React.useState(initialData);
-  const [pass, setPass] = React.useState("");
-  const [tel, setTel] = React.useState("");
-  const [alert, setalert] = React.useState(false);
-  const [success, setSuccess] = React.useState(false);
 
-  const [generated, setGenerated] = React.useState("");
+  const [logging, setLogging] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,13 +67,16 @@ function Login() {
 
     if (response.role === "admin") {
       navigate("/admin/dashboard");
-    } else {
+    } else if (response.role === "normal") {
       navigate("/admin/referral");
+    } else {
+      return;
     }
   }
 
   async function loginUser(data1) {
     try {
+      setLogging(true);
       const response = await fetch("https://hara.smolleys.com/auth/login", {
         method: "POST",
         headers: {
@@ -84,6 +84,7 @@ function Login() {
         },
         body: JSON.stringify(data1),
       });
+      setLogging(false);
 
       const responseData = await response.json();
       handleResponse(responseData);
@@ -92,6 +93,7 @@ function Login() {
         setTimeout(resolve, 1000);
       });
     } catch (error) {
+      setLogging(false);
       console.error("Error:", error);
     }
   }
@@ -160,7 +162,7 @@ function Login() {
                       type="button"
                       onClick={() => loginUser(data)}
                     >
-                      Sign in
+                      {logging ? "Loading . . . ." : "Sign in"}
                     </Button>
                   </div>
                 </Form>
